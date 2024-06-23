@@ -1,0 +1,13 @@
+__pycache__/**
+tmpDir/**
+.vscode/**
+nul
+*.exe
+testThread.cpp
+*.stackdump
+ThreadCustom.cpp
+timeoutExecution.bat
+GraderInterface.cpp
+grade.sh
+bai17.cpp
+bai18.cpp
