@@ -2,6 +2,7 @@
 #include "./TestFramework.cpp"
 #include "./Bai17Grader.cpp"
 #include "./Bai18Grader.cpp"
+#include "./Bai19Grader.cpp"
 
 using namespace std;
 
@@ -9,6 +10,7 @@ class MyTestFramework : public TestFramework {
 
     Bai17Grader *bai17Grader = NULL;
     Bai18Grader *bai18Grader = NULL;
+    Bai19Grader *bai19Grader = NULL;
 
 public:
     MyTestFramework(std::string testInputFile = ""):TestFramework(testInputFile) {
@@ -16,7 +18,8 @@ public:
             this->bai17Grader = new Bai17Grader(TEST_INPUT_FILE);
         } else if (testInputFile == "bai18") {
             this->bai18Grader = new Bai18Grader(TEST_INPUT_FILE);
-        } else {
+        } else if (testInputFile == "bai19") {
+            this->bai19Grader = new Bai19Grader(TEST_INPUT_FILE);
         }
     }
     
@@ -32,6 +35,12 @@ public:
                 return this->bai18Grader->grade(loop);
             } else {
                 return (new Bai18Grader(TEST_INPUT_FILE))->grade(loop);
+            }
+        } else if (this->inputFileName == "bai19") {
+            if (this->bai19Grader != NULL) {
+                return this->bai19Grader->grade(loop);
+            } else {
+                return (new Bai19Grader(TEST_INPUT_FILE))->grade(loop);
             }
         } else {
             vector<string> empty;

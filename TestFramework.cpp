@@ -112,7 +112,7 @@ public:
         }
         int correct = 0;
         for (int loop = 0; loop < N_TESTS; ++loop) {
-            cout << "\n-------\n";
+            printf("\n-------\n");
             vector<string> expectedAnswers = printTestInputs(loop);
             if (expectedAnswers.size() <= 0) {
                 cout << "Grading not supported !\n";
@@ -151,7 +151,7 @@ public:
                     printf("Test %d CORRECT ✅\n", loop);
                 } else {
                     // cout << "Test " << loop << " Incorrect ❌" << endl;
-                    printf("Test %d Incorrect ❌\n");
+                    printf("Test %d Incorrect ❌\n", loop);
                 }
             }
         }
