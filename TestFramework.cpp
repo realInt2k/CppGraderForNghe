@@ -33,7 +33,7 @@ const int N_TESTS = 25;
 const string TEST_INPUT_FILE = "test_inputs.txt";
 const string TARGET_PROGRAM_OUTPUT_FILE = "output.txt";
 const string PROGRAM_NAME = "grader";
-const int TIME_LIMIT = 500;
+const int TIME_LIMIT = 1500;
 
 class TestFramework {
 public:
@@ -103,6 +103,10 @@ public:
         return true;
     }
 
+    virtual int getTimeLimit() {
+        return TIME_LIMIT;
+    }
+
     void run() {
         this->inputFileName = inputTargetProgram();
         bool resultCompile = compileTargetProgram(inputFileName);
@@ -119,7 +123,7 @@ public:
                 return;
             }
         
-            bool resultRun = runTargetProgram(inputFileName, TIME_LIMIT);
+            bool resultRun = runTargetProgram(inputFileName, this->getTimeLimit());
             if (!resultRun) {
                 continue;
             }

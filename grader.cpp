@@ -11,15 +11,25 @@ class MyTestFramework : public TestFramework {
     Bai17Grader *bai17Grader = NULL;
     Bai18Grader *bai18Grader = NULL;
     Bai19Grader *bai19Grader = NULL;
+    string testInputFile;
 
 public:
     MyTestFramework(std::string testInputFile = ""):TestFramework(testInputFile) {
+        this->testInputFile = testInputFile;
         if (testInputFile == "bai17") {
             this->bai17Grader = new Bai17Grader(TEST_INPUT_FILE);
         } else if (testInputFile == "bai18") {
             this->bai18Grader = new Bai18Grader(TEST_INPUT_FILE);
         } else if (testInputFile == "bai19") {
             this->bai19Grader = new Bai19Grader(TEST_INPUT_FILE);
+        }
+    }
+
+    int getTimeLimit() override {
+        if (this->testInputFile == "bai18") {
+            return 900;
+        } else {
+            return TIME_LIMIT;
         }
     }
     
